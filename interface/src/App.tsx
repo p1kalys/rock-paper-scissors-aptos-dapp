@@ -182,7 +182,22 @@ const App: React.FC = () => {
   const { account, connected, signAndSubmitTransaction } = useWallet();
 
   const toggleActiveState = async () => {
-    // Implement the function here
+    setIsActive(!isActive);
+    if (!account) return;
+    if (!isActive) {
+      console.log("Toggling active state: " + isActive);
+      const payload: InputTransactionData = {
+        data: {
+          function: `${moduleAddress}::${moduleName}::createGame`,
+          functionArguments: [],
+        },
+      };
+      const response = await signAndSubmitTransaction(payload);
+      console.log(response);
+    }
+    setInput("");
+    setResult("");
+    setComputerSelection("");
   };
 
   const handleOperationClick = async (operation: string) => {};
