@@ -1,4 +1,4 @@
-module metaschool::RockPaperScissors_01 {
+module metaschool::RockPaperScissors_04 {
     use std::string::{String,utf8};
     use std::signer;
     use aptos_framework::randomness;
